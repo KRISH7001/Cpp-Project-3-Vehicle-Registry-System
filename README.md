@@ -1,114 +1,97 @@
+🚗 Vehicle Registry System
+
+A C++ console application that demonstrates core and advanced object-oriented programming concepts — encapsulation, inheritance (single, multilevel, and multiple), polymorphism, and static members — through a menu-driven vehicle registration system.
+
 📁 Project Overview
-This project contains a C++ program that demonstrates fundamental object-oriented programming concepts such as classes, objects, encapsulation, abstraction, and static members. The program included is:  
-CPP
 
-Railway Reservation System – Lets you add train records, view all registered trains, and search for specific train details by train number.  
-CPP
+This project contains a single C++ program that lets you register different kinds of vehicles, view all registered vehicles, and search for a vehicle by its ID. It's built around a small class hierarchy rooted in an abstract-ish Vehicle base class, with derived classes for cars, electric cars, sports cars, sedans, SUVs, and even flying cars.
 
-📌 Program Included
-1. Railway Reservation System
-File: Railway_Reservation_System.cpp
+	
+File	Vehicle-Registry-System.cpp
+Language	C++
+Type	Console / menu-driven application
+✨ Features
+Encapsulation — all class fields are private, accessed only through public getters and setters
+Constructors & destructors — default and parameterized constructors, plus a virtual destructor for safe polymorphic cleanup
+Static members — a static totalVehicles counter shared across all Vehicle objects, incremented on construction and decremented on destruction
+Polymorphism — a virtual display() function overridden by every derived class, called through base-class pointers
+Inheritance — single, multilevel, and multiple inheritance all appear in the same hierarchy
+Dynamic memory management — vehicles are allocated with new and stored as Vehicle*, cleaned up automatically by the registry's destructor
+Menu-driven interface — built with switch and do-while loops
+🧬 Class Hierarchy
+Vehicle (base class)
+ ├── Car : public Vehicle
+ │     ├── ElectricCar : public Car
+ │     │     └── SportsCar : public ElectricCar        (multilevel inheritance)
+ │     ├── Sedan : public Car
+ │     └── SUV : public Car
+ └── Aircraft (independent base class)
+       └── FlyingCar : public Car, public Aircraft     (multiple inheritance)
+Class	Inherits From	Key Members
+Vehicle	—	vehicleID, manufacturer, model, year, static totalVehicles
+Car	Vehicle	fuelType
+ElectricCar	Car	batteryCapacity
+SportsCar	ElectricCar	topSpeed
+Sedan	Car	— (adds a "Sedan" type label on display)
+SUV	Car	fourWheelDrive
+Aircraft	—	flightRange
+FlyingCar	Car, Aircraft	combines car and aircraft data
 
-  
-CPP
+VehicleRegistry owns a fixed-size array of Vehicle* (vehicles[100]) and is responsible for adding, displaying, searching, and ultimately delete-ing every vehicle it holds.
 
-This program lets you manage a simple in-memory train reservation system through an interactive menu. It uses:  
-CPP
+🖥️ How It Works
 
-A Train class with attributes (train number, train name, source, destination, train time) encapsulated as private members  
-CPP
+Each Vehicle object knows how to describe itself. Derived classes override display() and call up into their parent's display() to build the full description:
 
-A static member trainCount to keep track of total train instances created and destroyed  
-CPP
-
-Default and parameterized constructors, along with a destructor to manage object creation and lifecycle  
-CPP
-
-Getters and setters for all train attributes  
-CPP
-
-A RailwaySystem class that manages an array of Train objects (trains[100]), facilitating record addition, full listings, and search operations  
-CPP
-
-A menu-driven interface using switch / do-while control structures  
-CPP
-
-Input handling using cin and cin.getline with character buffers  
-CPP
-
-The main menu looks like this:  
-CPP
-
-Plaintext
---- Railway Reservation System Menu ---
-1. Add New Train Record
-2. Display All Train Records
-3. Search Train by Number
-4. Exit
-The system initializes by asking the user to populate 3 initial train records before launching the main menu:  
-CPP
-
-C++
-// Encapsulated data input called on a Train instance:
-trains[totalTrains].inputTrainDetails();
-Train stores core route details including source, destination, and departure time.  
-CPP
-
-RailwaySystem encapsulates database operations, enforcing capacity limits (up to 100 trains).  
-CPP
-
-Static count tracking increments on creation and decrements on destruction.  
-CPP
-
+cpp
+// Called on each Vehicle pointer stored in the VehicleRegistry array:
+vehicles[i]->display();
+addVehicle() — stores a new vehicle pointer in the next free slot, up to a maximum of 100
+displayAll() — loops through every stored vehicle and prints its details via the virtual display() function
+searchById() — performs a linear scan, comparing each vehicle's ID against the one entered
+getTotalVehicles() — reports the live count of allocated Vehicle objects via the static counter
+Main Menu
+1. Add a Vehicle
+2. View All Vehicles
+3. Search Vehicle by ID
+4. Show Total Vehicle Count (static member)
+5. Exit
+Add Vehicle Sub-Menu
+1. Car
+2. ElectricCar
+3. FlyingCar
+4. SportsCar
+5. Sedan
+6. SUV
 🛠️ Requirements
-You can run this program using:
-
-GCC / G++ Compiler
-
-Visual Studio Code or any standard C++ IDE
-
+A C++ compiler, e.g. GCC / G++
+Any editor or IDE — Visual Studio Code works well
 ▶️ How to Run
+
 Using G++:
 
+bash
+g++ Vehicle-Registry-System.cpp -o vehicle_registry
+./vehicle_registry
 🎯 Learning Objectives
-This project helps practice:
+
+This project is good practice for:
 
 Basic C++ syntax
-
-Classes, objects, and encapsulation  
-CPP
-
-Static members and static member functions  
-CPP
-
-Default and parameterized constructors and destructors  
-CPP
-
-Getters and setters  
-CPP
-
-Object arrays and state management within a controller class  
-CPP
-
-Console input and output using cin, cout, and string functions (strcpy, getline)  
-CPP
-
-Control flow structures (switch, do-while, for)  
-CPP
-
-Menu-driven program design  
-CPP
-
+Classes, objects, and encapsulation
+Constructors and destructors (including virtual destructors)
+Static class members
+Getters and setters
+Single, multilevel, and multiple inheritance
+Runtime polymorphism with virtual functions
+Arrays of base-class pointers
+Dynamic memory allocation with new / delete
+Input and output using cin and cout
+Conditional statements and loops (switch, do-while, for)
+Menu-driven program design
 Basic problem solving
-
 📂 Project Structure
-Plaintext
-Railway-Reservation-System/
+Vehicle-Registry-System-Project/
 │
 ├── README.md
-└── Railway_Reservation_System.cpp
-🔹 Project Explanation Video
-👉 Explanation Video: [Add your video link here]
-
-👨‍💻 Author
-KRISH SAPARIYA 
+└── Vehicle-Registry-System.cpp
