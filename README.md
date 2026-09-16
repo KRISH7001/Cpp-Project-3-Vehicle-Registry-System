@@ -1,95 +1,60 @@
-🚗 Vehicle Registry System
+📁 Project Overview This project contains a simple C++ program that demonstrates object-oriented programming concepts such as classes, inheritance, polymorphism, multiple inheritance, and static members. The program included is:
 
-A C++ console application that demonstrates core and advanced object-oriented programming concepts — encapsulation, inheritance (single, multilevel, and multiple), polymorphism, and static members — through a menu-driven vehicle registration system.
+Vehicle Registry System – Register, store, search, and display different types of vehicles through a menu-driven console interface.
 
-📁 Project Overview
+📌 Program Included
 
-This project contains a single C++ program that lets you register different kinds of vehicles, view all registered vehicles, and search for a vehicle by its ID. It's built around a small class hierarchy rooted in a Vehicle base class, with derived classes for cars, electric cars, sports cars, sedans, SUVs, and even flying cars.
+Vehicle Registry System File: Vehicle-Registry-System.cpp This program lets the user register different types of vehicles (Car, ElectricCar, FlyingCar, SportsCar, Sedan, SUV), view all registered vehicles, search by ID, and see a running total vehicle count.
+It uses:
+A Vehicle base class with derived classes forming a multi-level inheritance chain Multiple inheritance (FlyingCar inherits from both Car and Aircraft) Virtual functions and override for polymorphic display() behavior A static member (totalVehicles) shared across all Vehicle instances A VehicleRegistry class that stores Vehicle* pointers and manages their lifetime A menu-driven interface using switch statements User input using cin and getline
 
-File: Vehicle-Registry-System.cpp
-Language: C++
-Type: Console / menu-driven application
-✨ Features
-Encapsulation — all class fields are private, accessed only through public getters and setters
-Constructors & destructors — default and parameterized constructors, plus a virtual destructor for safe polymorphic cleanup
-Static members — a static totalVehicles counter shared across all Vehicle objects, incremented on construction and decremented on destruction
-Polymorphism — a virtual display() function overridden by every derived class, called through base-class pointers
-Inheritance — single, multilevel, and multiple inheritance all appear in the same hierarchy
-Dynamic memory management — vehicles are allocated with new and stored as Vehicle*, cleaned up automatically by the registry's destructor
-Menu-driven interface — built with switch and do-while loops
-🧬 Class Hierarchy
-Vehicle (base class)
- ├── Car : public Vehicle
- │     ├── ElectricCar : public Car
- │     │     └── SportsCar : public ElectricCar        (multilevel inheritance)
- │     ├── Sedan : public Car
- │     └── SUV : public Car
- └── Aircraft (independent base class)
-       └── FlyingCar : public Car, public Aircraft     (multiple inheritance)
-Vehicle — base class; holds vehicleID, manufacturer, model, year, and the static totalVehicles
-Car (extends Vehicle) — adds fuelType
-ElectricCar (extends Car) — adds batteryCapacity
-SportsCar (extends ElectricCar) — adds topSpeed
-Sedan (extends Car) — adds a "Sedan" type label on display
-SUV (extends Car) — adds fourWheelDrive
-Aircraft — independent base class; holds flightRange
-FlyingCar (extends Car and Aircraft) — combines car and aircraft data
+The class hierarchy is:
 
-VehicleRegistry owns a fixed-size array of Vehicle* (vehicles[100]) and is responsible for adding, displaying, searching, and ultimately delete-ing every vehicle it holds.
+Vehicle
+└── Car
+    ├── ElectricCar
+    │   └── SportsCar
+    ├── Sedan
+    ├── SUV
+    └── FlyingCar (also inherits Aircraft)
 
-🖥️ How It Works
+Aircraft
+└── FlyingCar
 
-Each Vehicle object knows how to describe itself. Derived classes override display() and call up into their parent's display() to build the full description:
+Each vehicle's total count is tracked using a static member:
 
-cpp
-// Called on each Vehicle pointer stored in the VehicleRegistry array:
-vehicles[i]->display();
-addVehicle() — stores a new vehicle pointer in the next free slot, up to a maximum of 100
-displayAll() — loops through every stored vehicle and prints its details via the virtual display() function
-searchById() — performs a linear scan, comparing each vehicle's ID against the one entered
-getTotalVehicles() — reports the live count of allocated Vehicle objects via the static counter
-Main Menu
-1. Add a Vehicle
-2. View All Vehicles
-3. Search Vehicle by ID
-4. Show Total Vehicle Count (static member)
-5. Exit
-Add Vehicle Sub-Menu
-1. Car
-2. ElectricCar
-3. FlyingCar
-4. SportsCar
-5. Sedan
-6. SUV
-🛠️ Requirements
-A C++ compiler, e.g. GCC / G++
-Any editor or IDE — Visual Studio Code works well
-▶️ How to Run
+totalVehicles++ // incremented in every constructor totalVehicles-- // decremented in the destructor
 
-Using G++:
+🛠️ Requirements You can run this program using:
 
-bash
-g++ Vehicle-Registry-System.cpp -o vehicle_registry
-./vehicle_registry
-🎯 Learning Objectives
+GCC / G++ Compiler
+Visual Studio Code
 
-This project is good practice for:
+▶️ How to Run Using G++
+
+g++ -o Vehicle-Registry-System Vehicle-Registry-System.cpp ./Vehicle-Registry-System
+
+🎯 Learning Objectives This project helps practice:
 
 Basic C++ syntax
-Classes, objects, and encapsulation
-Constructors and destructors (including virtual destructors)
+Classes, constructors, and destructors
+Single, multi-level, and multiple inheritance
+Virtual functions and runtime polymorphism
 Static class members
-Getters and setters
-Single, multilevel, and multiple inheritance
-Runtime polymorphism with virtual functions
-Arrays of base-class pointers
-Dynamic memory allocation with new / delete
-Input and output using cin and cout
-Conditional statements and loops (switch, do-while, for)
+Dynamic memory management with pointers (new / delete)
+Input and output using cin, cout, and getline
 Menu-driven program design
 Basic problem solving
+
 📂 Project Structure
+
 Vehicle-Registry-System-Project/
 │
 ├── README.md
 └── Vehicle-Registry-System.cpp
+
+🔹 Project Explanation Video
+
+👉 Explanation Video: Add your video link here
+
+👨‍💻 Author Add your name here
