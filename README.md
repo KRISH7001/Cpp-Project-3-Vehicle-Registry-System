@@ -1,60 +1,172 @@
-📁 Project Overview This project contains a simple C++ program that demonstrates object-oriented programming concepts such as classes, inheritance, polymorphism, multiple inheritance, and static members. The program included is:
+# 🚗 C++ Project – Vehicle Registry System
 
-Vehicle Registry System – Register, store, search, and display different types of vehicles through a menu-driven console interface.
+## 📁 Project Overview
 
-📌 Program Included
+This project contains a simple **C++ program** that demonstrates object-oriented programming concepts such as **classes, inheritance, polymorphism, multiple inheritance, and static members**.
 
-Vehicle Registry System File: Vehicle-Registry-System.cpp This program lets the user register different types of vehicles (Car, ElectricCar, FlyingCar, SportsCar, Sedan, SUV), view all registered vehicles, search by ID, and see a running total vehicle count.
-It uses:
-A Vehicle base class with derived classes forming a multi-level inheritance chain Multiple inheritance (FlyingCar inherits from both Car and Aircraft) Virtual functions and override for polymorphic display() behavior A static member (totalVehicles) shared across all Vehicle instances A VehicleRegistry class that stores Vehicle* pointers and manages their lifetime A menu-driven interface using switch statements User input using cin and getline
+The program included is:
 
-The class hierarchy is:
+* **Vehicle Registry System** – Register, store, search, and display different types of vehicles through a menu-driven console interface.
 
+---
+
+## 📌 Program Included
+
+### Vehicle Registry System
+
+**File:** `Vehicle-Registry-System.cpp`
+
+This program allows the user to:
+
+* Register different types of vehicles
+* View all registered vehicles
+* Search for a vehicle by ID
+* Display the total number of registered vehicles
+* Use a menu-driven console interface
+
+The vehicle types included are:
+
+* Car
+* ElectricCar
+* FlyingCar
+* SportsCar
+* Sedan
+* SUV
+
+### 🔧 C++ Concepts Used
+
+The program demonstrates:
+
+* A `Vehicle` base class with derived classes
+* Multi-level inheritance
+* Multiple inheritance
+* Virtual functions and `override` for polymorphism
+* Static class members
+* Dynamic memory management
+* A `VehicleRegistry` class for managing vehicle objects
+* Menu-driven programming using `switch`
+* User input using `cin` and `getline`
+
+---
+
+## 🏗️ Class Hierarchy
+
+```text
 Vehicle
+│
 └── Car
     ├── ElectricCar
     │   └── SportsCar
     ├── Sedan
     ├── SUV
-    └── FlyingCar (also inherits Aircraft)
+    └── FlyingCar
+        └── also inherits Aircraft
 
 Aircraft
+│
 └── FlyingCar
+```
 
-Each vehicle's total count is tracked using a static member:
+---
 
-totalVehicles++ // incremented in every constructor totalVehicles-- // decremented in the destructor
+## 📊 Static Vehicle Counter
 
-🛠️ Requirements You can run this program using:
+Each vehicle's total count is tracked using the static member:
 
-GCC / G++ Compiler
-Visual Studio Code
+```cpp
+totalVehicles++;
+```
 
-▶️ How to Run Using G++
+The counter is incremented in every constructor and decremented in the destructor:
 
-g++ -o Vehicle-Registry-System Vehicle-Registry-System.cpp ./Vehicle-Registry-System
+```cpp
+totalVehicles++;
+totalVehicles--;
+```
 
-🎯 Learning Objectives This project helps practice:
+This demonstrates the use of **static data members shared across all objects of the `Vehicle` class**.
 
-Basic C++ syntax
-Classes, constructors, and destructors
-Single, multi-level, and multiple inheritance
-Virtual functions and runtime polymorphism
-Static class members
-Dynamic memory management with pointers (new / delete)
-Input and output using cin, cout, and getline
-Menu-driven program design
-Basic problem solving
+---
 
-📂 Project Structure
+## 🛠️ Requirements
 
+You can run this program using:
+
+* **GCC / G++ Compiler**
+* **Visual Studio Code**
+
+---
+
+## ▶️ How to Run Using G++
+
+### Step 1: Open the project folder
+
+Open the folder containing:
+
+```text
+Vehicle-Registry-System.cpp
+```
+
+### Step 2: Open the terminal
+
+Run:
+
+```bash
+g++ -o Vehicle-Registry-System Vehicle-Registry-System.cpp
+```
+
+### Step 3: Run the program
+
+On Windows:
+
+```bash
+Vehicle-Registry-System.exe
+```
+
+On Linux/macOS:
+
+```bash
+./Vehicle-Registry-System
+```
+
+---
+
+## 🎯 Learning Objectives
+
+This project helps practice:
+
+* Basic C++ syntax
+* Classes, constructors, and destructors
+* Single and multi-level inheritance
+* Multiple inheritance
+* Virtual functions
+* Runtime polymorphism
+* Static class members
+* Dynamic memory management using `new` and `delete`
+* Input and output using `cin`, `cout`, and `getline`
+* Menu-driven program design
+* Basic problem solving
+
+---
+
+## 📂 Project Structure
+
+```text
 Vehicle-Registry-System-Project/
 │
 ├── README.md
 └── Vehicle-Registry-System.cpp
+```
 
-🔹 Project Explanation Video
+---
 
-👉 Explanation Video: Add your video link here
+## 🔹 Project Explanation Video
 
-👨‍💻 Author Add your name here
+🎥 **Explanation Video:**
+Add your video link here.
+
+---
+
+## 👨‍💻 Author
+
+KRISH SAPARIYA
