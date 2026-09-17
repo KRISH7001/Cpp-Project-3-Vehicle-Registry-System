@@ -95,42 +95,6 @@ You can run this program using:
 * **GCC / G++ Compiler**
 * **Visual Studio Code**
 
----
-
-## ▶️ How to Run Using G++
-
-### Step 1: Open the project folder
-
-Open the folder containing:
-
-```text
-Vehicle-Registry-System.cpp
-```
-
-### Step 2: Open the terminal
-
-Run:
-
-```bash
-g++ -o Vehicle-Registry-System Vehicle-Registry-System.cpp
-```
-
-### Step 3: Run the program
-
-On Windows:
-
-```bash
-Vehicle-Registry-System.exe
-```
-
-On Linux/macOS:
-
-```bash
-./Vehicle-Registry-System
-```
-
----
-
 ## 🎯 Learning Objectives
 
 This project helps practice:
@@ -163,9 +127,7 @@ Vehicle-Registry-System-Project/
 ## 🔹 Project Explanation Video
 
 🎥 **Explanation Video:**
-Add your video link here.
-
----
+https://drive.google.com/file/d/1VQ3hsMfRdP6Y2Yl7i1f6EZKV-8nCeJZK/view?usp=sharing
 
 ## 👨‍💻 Author
 
